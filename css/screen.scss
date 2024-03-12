@@ -128,15 +128,22 @@ $columns: (2, 3, 4, 5, 6) !default;
 *:before,
 *:after {
   // Reset box-sizing
+  box-sizing: border-box;
 }
 
 * {
   // Reset margin and font-size and font-weight
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+  
 }
 
 img {
   // make images block level elements
+  display: block;
   // make images responsive
+  max-width: 100%;
 }
 
 /*---------------------------------------/*
@@ -150,6 +157,11 @@ img {
 */
 
 html {
+  font-size: calc($root-font-size / 16 * 100%);
+  font-family: $font-family-primary;
+  line-height: 1.5;
+  color: $color-text;
+  scroll-behavior: smooth;
 }
 
 /*
@@ -166,17 +178,44 @@ html {
 */
 
 h1 {
+  font-size: $ms5;
+  font-weight: 700;
+  line-height: calc($baseline * 4);
+  margin-bottom: $space-m;
+
+  @include mq(bp1) {
+    font-size: $ms9;
+    line-height: calc($baseline * 6);
+  }
+
+  @include mq(bp2){
+    font-size: $ms11;
+    line-height: calc($baseline * 8);
+  }
+
 }
 
 h2 {
+  font-size: $ms4;
+  font-weight: 700;
+  line-height: calc($baseline * 3);
+  margin-bottom: $space-m;
 }
 
 h3 {
+  font-size: $ms3;
+  font-weight: 700;
+  line-height: calc($baseline * 3);
+  margin-bottom: $space-m;
 }
 
 h4,
 h5,
 h6 {
+  font-size: $ms0;
+  font-weight: 700;
+  line-height: calc($baseline * 3);
+  margin-bottom: $space-m;
 }
 
 p,
@@ -186,35 +225,57 @@ dl,
 table,
 address,
 figure {
+  margin-bottom: $space-m;
 }
 
 ul,
 ol {
+  padding: 0;
+  list-style-position: inside;
 }
 
 li ul,
 li ol {
+  margin-bottom: 0;
 }
 
 blockquote {
+  font-family:  $font-family-secondary;
+  font-size: $ms3;
+  font-style: italic;
+  line-height: calc($baseline * 4);
+  margin-bottom: $space-m;
 }
 
 figcaption {
+  font-size: $ms-1;
+  line-height: calc($baseline * 2);
+  color: $color-text-lighter;
+  margin-top: $space-xs;
 }
 
 hr {
+  border: 0;
+  height: 1px;
+  background: $color-border;
+  margin-bottom: $space-m;
 }
 
 a {
+  color: $color-primary;
+  transition: all 0.1s ease-in-out;
 }
 
 a:hover {
+  color: $color-primary-light;
 }
 
 a:visited {
+  color: $color-primary;
 }
 
 a:active {
+  color: $color-primary-dark;
 }
 
 /*---------------------------------------/*
@@ -228,6 +289,16 @@ a:active {
 */
 
 .o-row {
+  padding: $space-m $space-m 0;
+
+  &--dark {
+    background-color: #2e3538;
+    color: $color-text-lighter;
+  }
+
+  &--primary {
+    color: $color-primary;
+  }
 }
 
 /*
