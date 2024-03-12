@@ -290,14 +290,22 @@ a:active {
 
 .o-row {
   padding: $space-m $space-m 0;
+  display: flow-root;
 
   &--dark {
-    background-color: #2e3538;
+    background-color: $color-text;
     color: $color-text-lighter;
   }
 
   &--primary {
-    color: $color-primary;
+    background-color: $color-primary;
+    color: $color-text;
+  }
+
+  &--xl {
+    @include mq(bp2){
+      padding: $space-xl $space-xl $space-m;
+    }
   }
 }
 
@@ -308,6 +316,9 @@ a:active {
 */
 
 .o-container {
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*
@@ -336,9 +347,14 @@ a:active {
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
+  margin: 0 calc(-1 * $grid-gutter);
+
+
 }
 
 .o-layout--gutter > .o-layout__item {
+  padding: 0 12px;
+
 }
 
 /* reverse horizontal row modifier */
